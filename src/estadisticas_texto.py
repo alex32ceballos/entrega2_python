@@ -25,8 +25,13 @@ those!"""
 
 def cantTotalLineas(text):
     lineas = len(text.split(".\n"))
-    print(f"Total de líneas: {lineas}")
+    return lineas
 
 def cantTotalPalabras(text):
-    palabras = len(text.split())
-    print(palabras)
+    palabrasCant = len(text.split())
+    return palabrasCant
+    
+def promedioPalabrasPorLinea(text):
+    promedio = cantTotalPalabras(text) / cantTotalLineas(text)
+    return round(promedio,2)
+    
