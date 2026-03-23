@@ -27,5 +27,6 @@ def cantTotalLineas(text):
     lineas = len(text.split(".\n"))
     print(f"Total de líneas: {lineas}")
 
-cantTotalLineas(text)
-    
+def cantTotalPalabras(text):
+    palabras = len(text.split())
+    print(palabras)
