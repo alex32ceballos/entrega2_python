@@ -1,4 +1,28 @@
-text = """Beautiful is better than ugly.
+
+
+
+def cantTotalLineas(text):
+    lineas = len(text.split(".\n"))
+    return lineas
+
+def cantTotalPalabras(text):
+    palabrasCant = len(text.split())
+    return palabrasCant
+    
+def promedioPalabrasPorLinea(text):
+    promedio = cantTotalPalabras(text) / cantTotalLineas(text)
+    return round(promedio,2)
+    
+def lineasArribaPromedio(text):
+    lineas = text.split(".\n")
+    promedio = promedioPalabrasPorLinea(text)
+    print("Líneas por encima del promedio (7.21 palabras)")
+    for palabra in lineas:
+        if (len(palabra.split()) > promedio):
+            print(f'- "{palabra}." ({len(palabra.split())} palabras)')
+
+def estadisticasTexto():
+    text = """Beautiful is better than ugly.
 Explicit is better than implicit.
 Simple is better than complex.
 Complex is better than complicated.
@@ -21,17 +45,9 @@ If the implementation is easy to explain, it may be a good
 idea.
 Namespaces are one honking great idea -- let's do more of
 those!"""
-
-
-def cantTotalLineas(text):
-    lineas = len(text.split(".\n"))
-    return lineas
-
-def cantTotalPalabras(text):
-    palabrasCant = len(text.split())
-    return palabrasCant
+    print("Total de lineas: ",cantTotalLineas(text))
+    print("Total de palabras: ",cantTotalPalabras(text))
+    print("Promedio de palabras por línea: ",promedioPalabrasPorLinea(text))
+    print(lineasArribaPromedio(text))
     
-def promedioPalabrasPorLinea(text):
-    promedio = cantTotalPalabras(text) / cantTotalLineas(text)
-    return round(promedio,2)
-    
+estadisticasTexto()
