@@ -1,7 +1,10 @@
 import string
 import textwrap #biblioteca para formatear el texto de salida
 
-review = """La película sigue a un grupo de astronautas que
+
+
+def filtroSpoilers(): #no tengo en cuenta los saltos de linea
+    review = """La película sigue a un grupo de astronautas que
 viajan a Marte
 en una misión de rescate. El capitán Torres lidera al equipo
 a través
@@ -15,8 +18,6 @@ al equipo y logran volver a la Tierra en una cápsula de
 emergencia.
 El final revela que Torres sobrevivió gracias a un pasaje
 secreto."""
-
-def filtroSpoilers(review): #no tengo en cuenta los saltos de linea
     palabras = input("Ingrese las palabras spoiler (separadas por coma): ").replace(" ","").split(",")
     reviewLista = review.split()
     for i,palabraReview in enumerate(reviewLista): #recorro la lista de palabras de review con indice i
