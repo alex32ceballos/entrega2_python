@@ -46,5 +46,5 @@ def sorteoAmigoInvisible():
         
     else:
         imprimirInvalidez(repetidos,nombres)
-sorteo()
+
     
