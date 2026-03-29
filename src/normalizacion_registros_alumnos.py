@@ -58,7 +58,7 @@ def imprimir(mejores):
         print(f'{diccionario["name"]:<25} {diccionario["grade"]:<17} {diccionario["status"]}')
     print(f"Total de alumnos válidos: {len(mejores)}")
 
-def normalizarRegistrosAlumnos(students):
+def normalizarRegistrosAlumnos():
     mejores = {} #un diccionario con clave "name" y valor el diccionario datos. Almacena las mejores notas y datos de los estudiantes sin repetir
     for estudiante in students:
         
@@ -80,6 +80,3 @@ def normalizarRegistrosAlumnos(students):
     mejores = list(mejores.values())
     mejores.sort(key=lambda x:x["name"]) #ordeno la nueva lista
     imprimir(mejores)
-    
-        
-normalizarRegistrosAlumnos(students)

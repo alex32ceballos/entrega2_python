@@ -16,7 +16,7 @@ emergencia.
 El final revela que Torres sobrevivió gracias a un pasaje
 secreto."""
 
-def filtroSpoilers(review): #no tengo en cuenta los saltos de linea
+def filtroSpoilers(): #no tengo en cuenta los saltos de linea
     palabras = input("Ingrese las palabras spoiler (separadas por coma): ").replace(" ","").split(",")
     reviewLista = review.split()
     for i,palabraReview in enumerate(reviewLista): #recorro la lista de palabras de review con indice i

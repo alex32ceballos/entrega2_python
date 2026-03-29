@@ -109,5 +109,3 @@ def competenciaCocinaRanking():
         
         imprimirTablaRonda(ordenado)
     imprimirTablaFinal(ordenado)
-    
-competenciaCocinaRanking()

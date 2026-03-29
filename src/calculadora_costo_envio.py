@@ -3,7 +3,7 @@ entreUnoYcincoKG = (1000, 2500, 4500)
 masCincoKG = (2000, 5000, 8000)
 zonasValidas = ("local","regional","nacional")
 
-def buscarZonaSegunPeso(zona, zonasValidas):
+def buscarZonaSegunPeso(zona):
     posicion = 0
     for i in zonasValidas:
         if zona == zonasValidas[posicion]:
@@ -29,7 +29,7 @@ def calcular():
             peso = float(peso)
             zona = input("Ingrese la zona de destino (local/regional/nacional): ").lower()
             if (zona in zonasValidas):
-                posicion = buscarZonaSegunPeso(zona,zonasValidas)
+                posicion = buscarZonaSegunPeso(zona)
                 costoEnvio = buscarCostoEnvio(peso,posicion)
                 print("Costo de envio: ", costoEnvio)
             else:
@@ -38,5 +38,3 @@ def calcular():
             print("el peso es erroneo")
     except:
         print("el peso es erroneo")
-    
-calcular()
