@@ -51,9 +51,10 @@ rounds = [
 ]
 
 
-def imprimirTablaRonda(ordenado):
-    for participante,datos in ordenado:
-        print(f'{participante:10} {datos["puntaje"]:8} {datos["rondas ganadas"]:13} {datos["mejor ronda"]:18} {datos["promedio"]:16}')
+def imprimirTablaRonda(ordenadoActual):
+    print("cocinero      puntaje")
+    for participante,datos in ordenadoActual:
+        print(f'{participante:10} {datos["puntaje"]:8}')
     print("")
 
 
@@ -67,14 +68,35 @@ def mejorPuntajeRonda(puntaje,participante,mejorPuntaje,mejorCocinero):
             mejorPuntaje = puntaje
     return mejorPuntaje,mejorCocinero
 
-def imprimirTablaFinal(ordenado):
+def imprimirTablaFinal(tablaPosicionesFinal):
+    ordenado = sorted(tablaPosicionesFinal.items(), key=lambda x:x[1]["puntaje"], reverse=True)
     print("Tabla de posiciones final:")
+    print("Cocinero      puntaje     rondas ganadas     mejor ronda      promedio")
     for participante,datos in ordenado:
-            print(f'{participante:10} {datos["puntaje"]:8} {datos["rondas ganadas"]:13} {datos["mejor ronda"]:18} {datos["promedio"]:16}')
+        print(f'{participante:10} {datos["puntaje"]:8} {datos["rondas ganadas"]:13} {datos["mejor ronda"]:18} {datos["promedio"]:16}')
 
-        
+
+def inicializarTablaFinal(rounds,tablaPosicionesFinal):
+    for ronda in rounds:
+        participantes = ronda["scores"]
+        for participante in participantes:
+            tablaPosicionesFinal[participante] = {
+                "puntaje":0,
+                "rondas ganadas":0,
+                "mejor ronda":0,
+                "promedio":0
+            }
+            
+def actualizarTablaFinal(tablaPosicionesFinal,participante,puntaje,posicion):
+    tablaPosicionesFinal[participante]["puntaje"] += puntaje
+    tablaPosicionesFinal[participante]["promedio"] = tablaPosicionesFinal[participante]["puntaje"] / posicion
+    if (puntaje > tablaPosicionesFinal[participante]["mejor ronda"]):
+        tablaPosicionesFinal[participante]["mejor ronda"] = puntaje
+    
+    
 def competenciaCocinaRanking(rounds):
     tablaPosicionesFinal = {}
+    inicializarTablaFinal(rounds,tablaPosicionesFinal)
     for i,ronda in enumerate(rounds):
         posicion = i + 1
         print(f'Ronda {posicion} - {ronda["theme"]}')
@@ -82,30 +104,23 @@ def competenciaCocinaRanking(rounds):
         participantes = ronda["scores"] #dicc de participantes
         mejorCocinero = ""
         mejorPuntaje = -1
+        rondaActual = {}
         for participante in participantes: #participante es la clave(string) de participantes
             puntaje = sum(participantes[participante].values())
             
-            if participante not in tablaPosicionesFinal:
-                tablaPosicionesFinal[participante] = {
-                    "puntaje":puntaje,
-                    "rondas ganadas":0,
-                    "mejor ronda":puntaje,
-                    "promedio":puntaje
-                }
-            else:
-                tablaPosicionesFinal[participante]["puntaje"] += puntaje
-                tablaPosicionesFinal[participante]["promedio"] = tablaPosicionesFinal[participante]["puntaje"] / posicion
-                
-            if (puntaje > tablaPosicionesFinal[participante]["mejor ronda"]):
-                tablaPosicionesFinal[participante]["mejor ronda"] = puntaje
+            rondaActual[participante] = {"puntaje":puntaje} #agrego en ronda actual
             
             mejorPuntaje,mejorCocinero = mejorPuntajeRonda(puntaje,participante,mejorPuntaje,mejorCocinero)
         
+            actualizarTablaFinal(tablaPosicionesFinal,participante,puntaje,posicion)
+                    
         tablaPosicionesFinal[mejorCocinero]["rondas ganadas"] += 1
         print(f"Ganador: {mejorCocinero} ({mejorPuntaje})")
-            
-        ordenado = sorted(tablaPosicionesFinal.items(), key=lambda x:x[1]["puntaje"], reverse=True)
-        print("Cocinero      puntaje     rondas ganadas     mejor ronda      promedio")
         
-        imprimirTablaRonda(ordenado)
-    imprimirTablaFinal(ordenado)
+        ordenadoActual = sorted(rondaActual.items(), key=lambda x:x[1]["puntaje"], reverse=True)
+        
+        imprimirTablaRonda(ordenadoActual)
+        
+    imprimirTablaFinal(tablaPosicionesFinal)
+    
+competenciaCocinaRanking(rounds)
