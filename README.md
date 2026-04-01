@@ -18,7 +18,7 @@ En una terminal en el directorio ejecutar el siguiente comando:
 pyenv local 3.13.12
 ```
 
-    - Que es pyenv y como instalarlo: https://realpython.com/intro-to-pyenv/  
+Que es pyenv y como instalarlo: https://realpython.com/intro-to-pyenv/  
 
 2. Crear el entorno virtual venv mediante la terminal dentro del directorio con el siguiente comando:
 
@@ -32,7 +32,12 @@ Si no funciona se utiliza:
 python3 -m venv .venv
 ```
 
-Una vez creado, hay que entrar en el entorno mediante la terminal con el siguien  te comando: source .venv/bin/activate  
+Una vez creado, hay que entrar en el entorno mediante la terminal con el siguien  te comando: 
+
+``bash
+source .venv/bin/activate
+```
+
 Dentro, descargo todas las dependencias con:
 
 ```bash
