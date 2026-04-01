@@ -32,4 +32,3 @@ def analisisHashtags(posts):
         if (valor > 1):
             print(f"{clave}: {valor}")
     print("Total de hashtags únicos: ",len(hashtagsUnicos))
-analisisHashtags()
