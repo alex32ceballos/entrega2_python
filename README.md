@@ -34,7 +34,7 @@ python3 -m venv .venv
 
 Una vez creado, hay que entrar en el entorno mediante la terminal con el siguien  te comando: 
 
-``bash
+```bash
 source .venv/bin/activate
 ```
 
