@@ -1,43 +1,43 @@
 ## Clonar repo y entrar:
-    ```bash
-    git clone https://github.com/alex32ceballos/entrega2_python.git
-    cd entrega2_python
-    ```
+```bash
+git clone https://github.com/alex32ceballos/entrega2_python.git
+cd entrega2_python
+```
 
 ## Como instalar las dependencias:
 
-    1. Instalar la version 3.13.12 de python mediante pyenv:
+1. Instalar la version 3.13.12 de python mediante pyenv:
 
-    ```bash
-    pyenv install 3.13.12
-    ```
+```bash
+pyenv install 3.13.12
+```
 
-    En una terminal en el directorio ejecutar el siguiente comando:
+En una terminal en el directorio ejecutar el siguiente comando:
 
-    ```bash
-    pyenv local 3.13.12
-    ```
+```bash
+pyenv local 3.13.12
+```
 
-        - Que es pyenv y como instalarlo: https://realpython.com/intro-to-pyenv/  
+    - Que es pyenv y como instalarlo: https://realpython.com/intro-to-pyenv/  
 
-    2. Crear el entorno virtual venv mediante la terminal dentro del directorio con el siguiente comando:
+2. Crear el entorno virtual venv mediante la terminal dentro del directorio con el siguiente comando:
 
-    ```bash
-    python -m venv .venv
-    ```
+```bash
+python -m venv .venv
+```
 
-    Si no funciona se utiliza:
+Si no funciona se utiliza:
 
-    ```bash
-    python3 -m venv .venv
-    ```
+```bash
+python3 -m venv .venv
+```
 
-    Una vez creado, hay que entrar en el entorno mediante la terminal con el   siguiente comando: source .venv/bin/activate  
-    Dentro, descargo todas las dependencias con:
+Una vez creado, hay que entrar en el entorno mediante la terminal con el siguien  te comando: source .venv/bin/activate  
+Dentro, descargo todas las dependencias con:
 
-    ```bash
-    pip install -r requirements.txt
-    ```
+```bash
+pip install -r requirements.txt
+```
 
 ## Como ejecutar el programa:  
 En una terminal dentro del directorio usar:
