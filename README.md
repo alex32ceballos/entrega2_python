@@ -11,14 +11,14 @@
     ```bash
     pyenv install 3.13.12
     ```
-    
+
     En una terminal en el directorio ejecutar el siguiente comando:
 
     ```bash
     pyenv local 3.13.12
     ```
 
-        1.1 Que es pyenv y como instalarlo: https://realpython.com/intro-to-pyenv/  
+        - Que es pyenv y como instalarlo: https://realpython.com/intro-to-pyenv/  
 
     2. Crear el entorno virtual venv mediante la terminal dentro del directorio con el siguiente comando:
 
@@ -40,7 +40,7 @@
     ```
 
 ## Como ejecutar el programa:  
-En una terminal dentro del directorio, y usar:
+En una terminal dentro del directorio usar:
 
 ```bash
 jupyter lab
