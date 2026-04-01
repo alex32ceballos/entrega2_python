@@ -45,7 +45,7 @@ pip install -r requirements.txt
 ```
 
 ## Como ejecutar el programa:  
-En una terminal dentro del directorio usar:
+En una terminal dentro del directorio y del entorno .venv:
 
 ```bash
 jupyter lab
