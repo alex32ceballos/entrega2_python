@@ -23,29 +23,29 @@ Namespaces are one honking great idea -- let's do more of
 those!"""
 
 
-def cantTotalLineas():
+def cantTotalLineas(text):
     lineas = len(text.split(".\n"))
     return lineas
 
-def cantTotalPalabras():
+def cantTotalPalabras(text):
     palabrasCant = len(text.split())
     return palabrasCant
     
-def promedioPalabrasPorLinea():
-    promedio = cantTotalPalabras() / cantTotalLineas()
+def promedioPalabrasPorLinea(text):
+    promedio = cantTotalPalabras(text) / cantTotalLineas(text)
     return round(promedio,2)
     
-def lineasArribaPromedio():
+def lineasArribaPromedio(text):
     lineas = text.split(".\n")
-    promedio = promedioPalabrasPorLinea()
-    print("Líneas por encima del promedio (7.21 palabras)")
+    promedio = promedioPalabrasPorLinea(text)
+    print(f"Líneas por encima del promedio ({promedio} palabras)")
     for palabra in lineas:
         if (len(palabra.split()) > promedio):
             print(f'- "{palabra}." ({len(palabra.split())} palabras)')
 
-def estadisticasTexto():
-    print("Total de lineas: ",cantTotalLineas())
-    print("Total de palabras: ",cantTotalPalabras())
-    print("Promedio de palabras por línea: ",promedioPalabrasPorLinea())
-    print(lineasArribaPromedio())
+def estadisticasTexto(text):
+    print("Total de lineas: ",cantTotalLineas(text))
+    print("Total de palabras: ",cantTotalPalabras(text))
+    print("Promedio de palabras por línea: ",promedioPalabrasPorLinea(text))
+    lineasArribaPromedio(text)
     

@@ -41,6 +41,14 @@ def eliminarRegistroNotaBasura(nota):
     except ValueError:
         return True
     
+def eliminarRegistroEstadoBasura(estado):
+    if estado == None:
+        return True
+    estado = estado.strip()
+    if estado == "":
+        return True
+    return False
+    
 
 def normalizarNombre(nombre):
     return nombre.strip().title()
@@ -58,13 +66,15 @@ def imprimir(mejores):
         print(f'{diccionario["name"]:<25} {diccionario["grade"]:<17} {diccionario["status"]}')
     print(f"Total de alumnos válidos: {len(mejores)}")
 
-def normalizarRegistrosAlumnos():
+def normalizarRegistrosAlumnos(students):
     mejores = {} #un diccionario con clave "name" y valor el diccionario datos. Almacena las mejores notas y datos de los estudiantes sin repetir
     for estudiante in students:
         
         if eliminarRegistroNombreBasura(estudiante["name"]):
             continue
         if eliminarRegistroNotaBasura(estudiante["grade"]):
+            continue
+        if eliminarRegistroEstadoBasura(estudiante["status"]):
             continue
 
         datos = {

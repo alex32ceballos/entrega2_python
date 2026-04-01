@@ -15,7 +15,7 @@ def crearDicHashtagsUnicos(todosLosHashtags,hashtagsUnicos):
         else:
             hashtagsUnicos[hashtag] += 1
 
-def analisisHashtags():
+def analisisHashtags(posts):
     listaPalabras = []
     todosLosHashtags = []
     hashtagsUnicos = {}

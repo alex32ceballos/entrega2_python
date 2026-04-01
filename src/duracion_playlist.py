@@ -34,7 +34,7 @@ def cancionEsLaMasCorta(minMasCorto,segMasCorto,minutos,segundos):
     totalMasCortosSegundos = minMasCorto * 60 + segMasCorto
     return totalSegundos < totalMasCortosSegundos
 
-def duracionesPlaylist():
+def duracionesPlaylist(playlist):
     minTotal = 0
     segTotal = 0
     minMasLargo = 0
@@ -57,4 +57,3 @@ def duracionesPlaylist():
     print(f"Duracion total: {minTotal}m {segTotal}s")
     print(f"Cancion mas larga: '{cancionMasLarga['title']}' ({minMasLargo}:{segMasLargo:02d})") #minimo 2 enteros
     print(f"Cancion mas corta: '{cancionMasCorta['title']}' ({minMasCorto}:{segMasCorto:02d})")
-duracionesPlaylist()

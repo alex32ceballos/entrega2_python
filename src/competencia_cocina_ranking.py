@@ -73,7 +73,7 @@ def imprimirTablaFinal(ordenado):
             print(f'{participante:10} {datos["puntaje"]:8} {datos["rondas ganadas"]:13} {datos["mejor ronda"]:18} {datos["promedio"]:16}')
 
         
-def competenciaCocinaRanking():
+def competenciaCocinaRanking(rounds):
     tablaPosicionesFinal = {}
     for i,ronda in enumerate(rounds):
         posicion = i + 1

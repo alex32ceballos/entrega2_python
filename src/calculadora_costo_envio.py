@@ -3,7 +3,7 @@ entreUnoYcincoKG = (1000, 2500, 4500)
 masCincoKG = (2000, 5000, 8000)
 zonasValidas = ("local","regional","nacional")
 
-def buscarZonaSegunPeso(zona):
+def buscarZonaSegunPeso(zona,zonasValidas):
     posicion = 0
     for i in zonasValidas:
         if zona == zonasValidas[posicion]:
@@ -11,7 +11,7 @@ def buscarZonaSegunPeso(zona):
         posicion += 1
     return posicion
 
-def buscarCostoEnvio(peso,posicion):
+def buscarCostoEnvio(peso,posicion,hastaUnKG,entreUnoYcincoKG,masCincoKG):
     match peso:
         case _ if (peso > 0 and peso <= 1):
             costoEnvio = hastaUnKG[posicion]
@@ -21,7 +21,7 @@ def buscarCostoEnvio(peso,posicion):
             costoEnvio = masCincoKG[posicion]
     return costoEnvio
         
-def calcular():
+def calcular(zonasValidas,hastaUnKG,entreUnoYcincoKG,masCincoKG):
     peso = input("Ingrese peso del paquete: ")
     try:
         peso = float(peso)
@@ -29,8 +29,8 @@ def calcular():
             peso = float(peso)
             zona = input("Ingrese la zona de destino (local/regional/nacional): ").lower()
             if (zona in zonasValidas):
-                posicion = buscarZonaSegunPeso(zona)
-                costoEnvio = buscarCostoEnvio(peso,posicion)
+                posicion = buscarZonaSegunPeso(zona,zonasValidas)
+                costoEnvio = buscarCostoEnvio(peso,posicion,hastaUnKG,entreUnoYcincoKG,masCincoKG)
                 print("Costo de envio: ", costoEnvio)
             else:
                 print("Zona no válida. Las zonas disponibles son: local, regional, nacional.")
