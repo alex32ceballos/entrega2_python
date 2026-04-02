@@ -53,8 +53,8 @@ rounds = [
 
 def imprimirTablaRonda(ordenadoActual):
     print("cocinero      puntaje")
-    for participante,datos in ordenadoActual:
-        print(f'{participante:10} {datos["puntaje"]:8}')
+    for participante,dato in ordenadoActual:
+        print(f'{participante:10} {dato:8}')
     print("")
 
 
@@ -77,15 +77,14 @@ def imprimirTablaFinal(tablaPosicionesFinal):
 
 
 def inicializarTablaFinal(rounds,tablaPosicionesFinal):
-    for ronda in rounds:
-        participantes = ronda["scores"]
-        for participante in participantes:
-            tablaPosicionesFinal[participante] = {
-                "puntaje":0,
-                "rondas ganadas":0,
-                "mejor ronda":0,
-                "promedio":0
-            }
+    primera_ronda = rounds[0]["scores"]
+    for participante in primera_ronda:
+        tablaPosicionesFinal[participante] = {
+            "puntaje":0,
+            "rondas ganadas":0,
+            "mejor ronda":0,
+            "promedio":0
+        }
             
 def actualizarTablaFinal(tablaPosicionesFinal,participante,puntaje,posicion):
     tablaPosicionesFinal[participante]["puntaje"] += puntaje
@@ -108,7 +107,7 @@ def competenciaCocinaRanking(rounds):
         for participante in participantes: #participante es la clave(string) de participantes
             puntaje = sum(participantes[participante].values())
             
-            rondaActual[participante] = {"puntaje":puntaje} #agrego en ronda actual
+            rondaActual[participante] = puntaje #agrego en ronda actual
             
             mejorPuntaje,mejorCocinero = mejorPuntajeRonda(puntaje,participante,mejorPuntaje,mejorCocinero)
         
@@ -117,10 +116,8 @@ def competenciaCocinaRanking(rounds):
         tablaPosicionesFinal[mejorCocinero]["rondas ganadas"] += 1
         print(f"Ganador: {mejorCocinero} ({mejorPuntaje})")
         
-        ordenadoActual = sorted(rondaActual.items(), key=lambda x:x[1]["puntaje"], reverse=True)
+        ordenadoActual = sorted(rondaActual.items(), key=lambda x:x[1], reverse=True)
         
         imprimirTablaRonda(ordenadoActual)
         
     imprimirTablaFinal(tablaPosicionesFinal)
-    
-competenciaCocinaRanking(rounds)
